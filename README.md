@@ -10,31 +10,29 @@ bash scripts within any directory. If you want to use it this way, this script m
 The following two examples should work with GitBash)
 
 - Add as an alias:
-```sh
+```bash
 git clone https://github.com/nikita-skobov/create-bash-script.git
 cd create-bash-script/
-alias create-bash-script="bash /path/to/this/directory/create-bash-script/create-bash-script.sh"
+alias create-bash-script="./path/to/this/directory/create-bash-script/create-bash-script"
 # then you should be able to run the script from any folder by running:
 # create-bash-script [OPTIONS]
 ```
 
 - Add to system PATH:
-```sh
+```bash
 git clone https://github.com/nikita-skobov/create-bash-script.git
 cd create-bash-script/
+make # it'll install script to /usr/local/bin, if you want to install it anywhere else than edit variable SCRIPT_PATH to yoir desired
 echo $PATH # to see which folders are part of your path
 # pick one of the folders (I reccommend /usr/local/bin)
-sudo cp create-bash-script.sh /usr/local/bin # or any other folder thats part of your PATH
+sudo install create-bash-script /usr/local/bin # or any other folder thats part of your PATH
 # then you can run the script from any folder by running:
 # create-bash-script.sh [OPTIONS]
-# NOTE that this way you have to specify the .sh file extension
-# If you don't want to do this, then you can rename your script:
-# sudo mv /usr/local/bin/create-bash-script.sh /usr/local/bin/create-bash-script
 ```
 
 ## Usage
 
-```sh
+```bash
   create-bash-script --name [OUTPUT FILE NAME] --arguments [COMMA SEPERATED LIST]
 ```
 
